@@ -31,6 +31,7 @@ Shows the frequency of ratings
 ![git1](https://user-images.githubusercontent.com/65847158/133480813-74656698-6b93-4fa9-b23d-f68529a7151c.PNG)
 
 Top 5 Bean types
+
 ![git2](https://user-images.githubusercontent.com/65847158/133481299-4304c092-636f-41d2-895f-624bd0c81348.PNG)
 
 
