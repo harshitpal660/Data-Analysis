@@ -34,5 +34,28 @@ Top 5 Bean types
 
 ![git2](https://user-images.githubusercontent.com/65847158/133481299-4304c092-636f-41d2-895f-624bd0c81348.PNG)
 
+Cocoa percent production over the year
+![Capture](https://user-images.githubusercontent.com/65847158/133482535-ab615071-e448-4e65-80bc-65c64532e3d3.PNG)
+
+Top 5 companies in producing cocoa
+
+![top companies by freq](https://user-images.githubusercontent.com/65847158/133482466-b1455baa-584b-46e8-9a28-a5636d9e0bc9.PNG)
+
+Review Based on ratings
+
+dissappointing(<2)
+
+satisfactory(>=2 and <=3)
+
+elite/premium(>3)
+
+![Capture](https://user-images.githubusercontent.com/65847158/133483121-ed3e3b3e-9cdd-46d2-9e3d-7f4e5a0c54a6.PNG)
+
+TOP 5 Countries Producing Choclate in the World(conclusion based on no of Companies)
+
+![Capture](https://user-images.githubusercontent.com/65847158/133483681-13b07559-37a2-48f2-a132-15d6d1378d0e.PNG)
+
+
+
 
 
