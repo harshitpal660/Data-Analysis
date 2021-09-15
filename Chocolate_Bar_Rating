@@ -1,3 +1,50 @@
-import pandas as pd 
-df=pd.read_csv('/content/drive/MyDrive/smartknower/datasets/flavors.csv')    #put the location of dataset where you stored in your local or cloud storage 
+import pandas as pd                                                          '''Explanation of Every line'''
+df=pd.read_csv('/content/drive/MyDrive/smartknower/datasets/flavors.csv')    # put the location of dataset where you stored in your local or cloud storage 
+print(df)                                                                    # Displaying our dataset
+df.columns=df.columns.str.replace('\n','')                                   # Removing unnwanted characters in columns name    
+df.columns=df.columns.str.lower()                                            # converting Each and every Coolumns in lower case for better retreiving information
+
+df.columns=["company","bean_origin","ref","reviewdate"
+,"cocoapercent","companylocation","rating","beantype","broad_bean_origin"]   # Changing column Name for simplification
+print(df)
+
+
+'''huuhh... the above code looks so boring let's Visualize the data set
+The aim for this visualization is to provide a clear idea of expert ratings 
+for the bar'''
+
+r=df['rating'].value_counts().sort_index(ascending=True)      #Storing all the ratings and their occurence in a variable r
+print(r)
+
+                                                              #OUTPUT
+                                                              '''1.00      4
+                                                                 1.50     10
+                                                                 1.75      3
+                                                                 2.00     32
+                                                                 2.25     14
+                                                                 2.50    127
+                                                                 2.75    259
+                                                                 3.00    341
+                                                                 3.25    303
+                                                                 3.50    392
+                                                                 3.75    210
+                                                                 4.00     98
+                                                                 5.00      2
+                                                                 Name: rating, dtype: int64'''
+'''Run the below lines and you will get what you want'''
+import matplotlib.pyplot as plt
+plt.figure(figsize=(20,4))
+plt.bar(r.index,r,color=['grey','blue'])
+plt.xlabel("ratings")
+plt.ylabel("counts")
+plt.title("Bar Graph")
+plt.show()
+plt.figure(figsize=(20,4))
+plt.bar(r.index.astype(str),r,color=['grey','blue'])
+plt.xlabel("ratings")
+plt.ylabel("counts")
+plt.title("Bar Graph")
+plt.show()
+
+
 
