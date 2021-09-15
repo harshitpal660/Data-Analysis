@@ -1,5 +1,5 @@
 # Data-Analysis
-In these repository I have put some of my analized  Datasets
+In these repository I have  analize Chocolate Datasets
 
 the code written here is for beginners who can uderstand each line of my code
 
