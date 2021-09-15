@@ -26,3 +26,7 @@ Overview
 
 Data in Table Format
 ![git](https://user-images.githubusercontent.com/65847158/133480562-f5f77919-f591-4984-8ee8-fa3e0a8c149a.PNG)
+
+Shows the frequency of ratings
+![git1](https://user-images.githubusercontent.com/65847158/133480813-74656698-6b93-4fa9-b23d-f68529a7151c.PNG)
+
