@@ -1,2 +1,3 @@
 import pandas as pd 
-df=pd.read_csv('/content/drive/MyDrive/smartknower/datasets/flavors.csv')    #put the location of dataset where you stored in your local or cloud storage   
+df=pd.read_csv('/content/drive/MyDrive/smartknower/datasets/flavors.csv')    #put the location of dataset where you stored in your local or cloud storage 
+![git](https://user-images.githubusercontent.com/65847158/133475918-00cc8417-80d7-463f-a7aa-3012b3dc3eb6.PNG)
