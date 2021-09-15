@@ -23,3 +23,5 @@ Note-You don't have to master each lib just a basic knowledge is enough
 
 Overview
 
+Data in Table Format
+![git](https://user-images.githubusercontent.com/65847158/133480562-f5f77919-f591-4984-8ee8-fa3e0a8c149a.PNG)
