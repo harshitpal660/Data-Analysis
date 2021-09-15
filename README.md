@@ -1,4 +1,7 @@
 # Data-Analysis
+
+![dataset-cover](https://user-images.githubusercontent.com/65847158/133476937-6cea554f-ab27-4ea7-ab30-b6c7727e4688.jpg)
+
 In these repository I have  analize Chocolate Datasets
 
 the code written here is for beginners who can uderstand each line of my code
@@ -18,8 +21,6 @@ reader must have a basic knowledge of
 *seaborn
 
 Note-You don't have to master each lib just a basic knowledge is enough
-
-![dataset-cover](https://user-images.githubusercontent.com/65847158/133476937-6cea554f-ab27-4ea7-ab30-b6c7727e4688.jpg)
 
 Overview
 
