@@ -2,7 +2,7 @@ import pandas as pd                                                          '''
 df=pd.read_csv('/content/drive/MyDrive/smartknower/datasets/flavors.csv')    # put the location of dataset where you stored in your local or cloud storage 
 print(df)                                                                    # Displaying our dataset
 df.columns=df.columns.str.replace('\n','')                                   # Removing unnwanted characters in columns name    
-df.columns=df.columns.str.lower()                                            # converting Each and every Coolumns in lower case for better retreiving information
+df.columns=df.columns.str.lower()                                            # converting Each and every Columns in lower case for better retreiving information
 
 df.columns=["company","bean_origin","ref","reviewdate"
 ,"cocoapercent","companylocation","rating","beantype","broad_bean_origin"]   # Changing column Name for simplification
@@ -32,20 +32,74 @@ print(r)
                                                                  5.00      2
                                                                  Name: rating, dtype: int64'''
 '''Run the below lines and you will get what you want'''
-import matplotlib.pyplot as plt
-plt.figure(figsize=(20,4))
-plt.bar(r.index,r,color=['grey','blue'])
-plt.xlabel("ratings")
-plt.ylabel("counts")
-plt.title("Bar Graph")
-plt.show()
-plt.figure(figsize=(20,4))
-plt.bar(r.index.astype(str),r,color=['grey','blue'])
-plt.xlabel("ratings")
-plt.ylabel("counts")
-plt.title("Bar Graph")
-plt.show()
+import matplotlib.pyplot as plt                                                    #importing matplotlib.pyplot
+plt.figure(figsize=(20,4))                                                         #initializing figure size
+plt.bar(r.index.astype(str),r,color=['grey','blue'])                               #setting 'r.index' in x-axis and 'r' in y-axis with grey and blue color respectively
+                                                                                   #But wait ... why we used 'astype(str)' here just try it without it and you will get your answer
+                                                                                   #the reason for this is initially 'r.index' is an int values so thay get concatenated
+plt.xlabel("ratings")                                                              #creating label for x-axis
+plt.ylabel("counts")                                                               #creating label for y-axis
+plt.title("Bar Graph")                                                             #main title of bar graph
+plt.show()                                                                         #displaying our graph
 
-'''TO be continued.... '''
+
+'''Now lets deal with Missing values in our dataset'''
+df.info()                                                                          #Gives the complete summary of your dataset
+
+
+                   output=>   ''' #   Column             Non-Null Count  Dtype  
+                                 ---  ------             --------------  -----  
+                                  0   company            1795 non-null   object 
+                                  1   bean_origin        1795 non-null   object 
+                                  2   ref                1795 non-null   int64  
+                                  3   reviewdate         1795 non-null   int64  
+                                  4   cocoapercent       1795 non-null   object 
+                                  5   companylocation    1795 non-null   object 
+                                  6   rating             1795 non-null   float64
+                                  7   beantype           1794 non-null   object 
+                                  8   broad_bean_origin  1794 non-null   object '''
+
+'''Now carefully look at the above output all values in column section have 1795 non null objects......is it so? look once again the last two values 'beantype'
+and 'broad_bean_origin' have 1794 non-null objects which means they have one missing values. This doesn't mean they have just one missing value we have to find 
+the index no where the missing value is present'''
+
+np.where(df.isnull())                                                  #Gives you 2 arrays -first array contain indexes from where to where our missing values are present
+                                                                                           -second array given you the no. of columns where this null characters are present 
+                                                                                           in this case it is 7 and 8
+output=>(array([1072, 1544]), array([8, 7]))
+
+'''For now we will deal with bean_type'''
+
+df[['bean_type']]
+df['beantype'].unique()                                                 #\xa0 is actually non-breaking space in Latin1 (ISO 8859-1)
+
+r=df['beantype'].value_counts()                                         #
+print(r)
+outpuut=>                            887   <-- this much missing characters we have
+         Trinitario                  419
+         Criollo                     153
+         Forastero                    87
+         Forastero (Nacional)         52
+         Blend                        41
+         Criollo, Trinitario          39
+         Forastero (Arriba)           37
+         Criollo (Porcelana)          10
+         Trinitario, Criollo           9
+         Forastero (Parazinho)         8
+         ........more
+         
+#replace the space with missing value and change it with mode
+df['beantype']=df['beantype'].replace({"\xa0":None})
+df['beantype']=df['beantype'].fillna(df['beantype'].mode()[0])
+df['beantype']
+
+df.info()
+output=> 7   beantype           1795 non-null   object 
+         8   broad_bean_origin  1794 non-null   object 
+
+'''To be continued'''
+
+
+
 
 
