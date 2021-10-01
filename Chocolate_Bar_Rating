@@ -97,9 +97,57 @@ df.info()
 output=> 7   beantype           1795 non-null   object 
          8   broad_bean_origin  1794 non-null   object 
 
-'''To be continued'''
+df['company'].mode()                          # output =  0    Trinitario
+df['beantype'].mode()[0]                      # output =  'Trinitario'
+
+'''Plotting top 5 Bean Types'''
+b = df['beantype'].value_counts().head()
+#pandas plotting
+b.plot(kind='bar',figsize=(10,6),color=("red","blue"))
+for i in range(len(b)):
+  plt.text(i,b[i],b[i],ha='center')
+plt.title("Bar Graph",fontsize=30)
+plt.xlabel("Cocoa bean type",fontsize=20)
+plt.ylabel("Count",fontsize=15)
+
+''' Cocoa percent over the years'''
+df['cocoapercent'] = df['cocoapercent'].str.replace('%','').astype(float)/100
+df['cocoapercent']
+plt.scatter(df['rating'],df['cocoapercent'])
+
+'''Seaborn Visualization'''
+#Seaborn is an advanced data visualization library built on top of matplotlib
+d=df['company'].value_counts().head(5)
+print(type(d))               # output <class 'pandas.core.series.Series'>
+print(d) 
+d=pd.DataFrame(d)            
+print(type(d))               # output <class 'pandas.core.frame.DataFrame'>
+d=d.reset_index()
+print(d)
+import seaborn as sns
+sns.barplot(x='index',y='company',data=d)
 
 
+'''Consider Ratings and divide them into different categories and plot a pie chart'''
+label=['disappointing','satisfactory','premium_elite']
+disappoint = df[df['rating']<2]
+satisfactory = df[(df['rating']>=2)&(df['rating']<=3)]
+premium_elite = df[df['rating']>=3]
+x= [disappoint.shape[0],satisfactory.shape[0],premium_elite.shape[0]]
+plt.figure(figsize=(5,5))
+plt.pie(x,labels=label)
+plt.show()
 
-
+'''Top Chocolate Producing Countries in the World'''
+#bar plot
+#Method 1 (Pandas plotting)
+d=df['companylocation'].value_counts().head()
+# d=pd.DataFrame(d)
+print(d)
+d.plot(kind="bar",figsize=(10,6),color=("red","blue"))
+for i in range(len(d)):
+  plt.text(i,d[i],d[i])
+plt.title("TOP 5 COUNTRIES PRODUCING CHOCLATE IN THE WORLD",fontsize=30)
+plt.xlabel("countries",fontsize=20)
+plt.ylabel("no. of companies",fontsize=20)
 
